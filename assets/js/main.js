@@ -56,13 +56,16 @@ var isWaveAudioSupported;
 var audio;
 
 
+var sendDetailsForm;
 var yourName;
 var yourEmail;
 var recipientsEmail;
 var sendDetailsButton;
+var sendDetailsConfirmation;
+var sendDetailsError;
 
 
-var isTrackingEnabled = true;	// set to false while debugging
+var isTrackingEnabled = false;	// set to false while debugging
 var analytics;
 
 
@@ -151,11 +154,14 @@ function getDOMElements()
 	audioWaveLabel = $("#audioWaveLabel");
 	
 	// send inputs and button
+	sendDetailsForm = $("#sendDetailsForm");
 	yourName = $("#yourName");
 	yourEmail = $("#yourEmail");
 	recipientsEmail = $("#recipientsEmail");
 	sendDetailsButton = $("#sendDetailsButton");
 	sendDetailsButton.on("click", onSendClicked);
+	sendDetailsConfirmation = $("#sendDetailsConfirmation");
+	sendDetailsError = $("#sendDetailsError");
 }
 
 
@@ -391,16 +397,40 @@ function onSendClicked(_)
 			url: url,
 			success: function(data)
 			{
+				var duration = 375;
+				var targetOpacity = 0
 				if(data == "success")
 				{
-					console.log("email sent");
+					sendDetailsForm.fadeTo	(	duration,
+												targetOpacity,
+												onFormHiddenForSuccess
+											);
 				}
 				else
 				{
-					console.log("error happened");
+					sendDetailsForm.fadeTo	(	duration,
+												targetOpacity,
+												onFormHiddenForError
+											);
 				}
 			}
 		}
 	);
 	}
+}
+
+
+function onFormHiddenForSuccess()
+{
+	sendDetailsForm.css("display", "none");
+	sendDetailsConfirmation.css("display", "block");
+	sendDetailsConfirmation.fadeTo(575, 1);
+}
+
+
+function onFormHiddenForError()
+{
+	sendDetailsForm.css("display", "none");
+	sendDetailsError.css("display", "block");
+	sendDetailsError.fadeTo(575, 1);
 }

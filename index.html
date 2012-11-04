@@ -195,30 +195,40 @@
 			<div id="sendDetails">
 				<h2>Send codec info</h2>
 				
-				<div id="sendDetailsInputs" class="greyButton">
-					<input 
-						type="text" 
-						value="Your name"
-						name="yourName" 
-						id="yourName" 
-						class="detailsInput" 
-					/>
-					<input 
-						type="text" 
-						value="Your email"
-						name="yourEmail" 
-						id="yourEmail" 
-						class="detailsInput detailsInputLeftMargin" 
-					/>
-					<input 
-						type="text" 
-						value="Recipient's email"
-						name="recipientsEmail" 
-						id="recipientsEmail" 
-						class="detailsInput detailsInputLeftMargin" 
-					/>
+				<div id="sendDetailsForm">
+					<div id="sendDetailsInputs" class="greyButton">
+						<input 
+							type="text" 
+							value="Your name"
+							name="yourName" 
+							id="yourName" 
+							class="detailsInput" 
+						/>
+						<input 
+							type="text" 
+							value="Your email"
+							name="yourEmail" 
+							id="yourEmail" 
+							class="detailsInput detailsInputLeftMargin" 
+						/>
+						<input 
+							type="text" 
+							value="Recipient's email"
+							name="recipientsEmail" 
+							id="recipientsEmail" 
+							class="detailsInput detailsInputLeftMargin" 
+						/>
+					</div>
+					<div id="sendDetailsButton" class="greyButton">Send</div>
 				</div>
-				<div id="sendDetailsButton" class="greyButton">Send</div>
+				
+				<div id="sendDetailsConfirmation" class="emailFollowUpTile">
+					Your email was sent. <span class="newLine">Thank you for using </span><span class="newLine">Codec Detect!</span>
+				</div>
+				
+				<div id="sendDetailsError" class="emailFollowUpTile">
+					There was an error <span class="newLine">sending your email, </span><span class="newLine">please try again later.</span>
+				</div>
 			</div>
 		</div>
 		

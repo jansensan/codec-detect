@@ -65,3 +65,30 @@
 	padding:24px 48px;
 	margin-left:32px;
 }
+
+
+.emailFollowUpTile
+{
+	width: 760px;
+	padding: 24px 16px;
+}
+
+
+#sendDetailsConfirmation
+{
+	background:#98e052;
+	background-image: url("../images/tile-gradient.png");
+}
+
+
+#sendDetailsError
+{
+	background:#f78989;
+	background-image: url("../images/tile-gradient.png");
+}
+
+
+.newLine
+{
+	display: inline;
+}

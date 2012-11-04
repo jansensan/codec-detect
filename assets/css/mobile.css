@@ -91,6 +91,33 @@
 }
 
 
+.emailFollowUpTile
+{
+	width: 224px;
+	padding: 24px;
+}
+
+
+#sendDetailsConfirmation
+{
+	background:#98e052;
+	background-image: url("../images/tile-gradient-2.png");
+}
+
+
+#sendDetailsError
+{
+	background:#f78989;
+	background-image: url("../images/tile-gradient-2.png");
+}
+
+
+.newLine
+{
+	display: block;
+}
+
+
 /* --- footer ---*/
 
 .column
