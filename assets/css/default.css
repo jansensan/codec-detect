@@ -1,0 +1,243 @@
+html,
+body
+{
+	background: #444;
+	width:100%;
+	height:100%;
+}
+
+
+a
+{
+	color:#98e052;
+}
+
+
+a:hover,
+a:active
+{
+	color:#fff;
+	text-decoration: none;
+}
+
+
+/* --- common ---*/
+
+.wrapper
+{
+	width: 800px;
+	margin: 0 auto;
+}
+
+
+/* --- header ---*/
+
+#header
+{
+	width:100%;
+	background: #333;
+	font-size: 24px;
+	padding:12px 0;
+	color:#eee;
+	text-shadow: 0 -1px 0 #000;
+}
+
+
+.headerColumn
+{
+	width:376px;
+	display: inline-block;
+}
+
+
+#header h1
+{
+	margin:0 32px 0 0;
+}
+
+
+#header h3
+{
+	margin:0;
+	text-align: right;
+}
+
+
+.author
+{
+	line-height:16px;
+	font-size:14px;
+	font-weight: normal;
+}
+
+
+#headerLabel
+{
+	font-size: 200%
+}
+
+
+/* --- content ---*/
+
+#content
+{
+	color:#eee;
+	text-shadow: 0 -1px 0 #000;
+}
+
+
+.codecGroup
+{
+	overflow:hidden;
+}
+
+
+.tagNotSupported
+{
+	float: left;
+	width:792px;
+	max-height: 100px;
+	margin-bottom:32px;
+	border: 1px solid rgba(220, 220, 220, 0.8);
+	background:#f78989;
+	background-image: url("../images/tile-gradient.png");
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px #333;
+	text-shadow: 0 1px 0 rgba(220, 220, 220, 0.8);
+	color:#444;
+	display: none;
+}
+
+
+.tagNotSupported a
+{
+	color:#444;
+}
+
+
+.codecTile
+{
+	float: left;
+	width:372px;
+	max-height: 100px;
+	margin-bottom:16px;
+	border: 1px solid rgba(220, 220, 220, 0.8);
+	background: #ccc;
+	background-image: url("../images/tile-gradient.png");
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px #333;
+	text-shadow: 0 1px 0 rgba(220, 220, 220, 0.8);
+	color:#444;
+}
+
+
+.codecTile:hover
+{
+	color:#333;
+}
+
+
+.codecTileLeftColumn
+{
+	margin-right:16px;
+}
+
+
+.supportedCodecTile
+{
+	background:#98e052;
+	background-image: url("../images/tile-gradient.png");
+}
+
+
+.unsupportedCodecTile
+{
+	background:#f78989;
+	background-image: url("../images/tile-gradient.png");
+}
+
+
+.supportedLabel
+{
+	text-align: center;
+	padding:32px 0;
+	font-weight: bold;
+	background-repeat: no-repeat;
+}
+
+
+.videoOverlay
+{
+	background-image: url("../images/video-overlay.png");
+}
+
+
+.audioOverlay
+{
+	background-image: url("../images/audio-overlay.png");
+}
+
+
+/* --- send details ---*/
+
+#sendDetails
+{
+	margin-bottom:32px;
+}
+
+
+.greyButton
+{
+	padding: 24px;
+	border: 1px solid rgba(220, 220, 220, 0.8);
+	background: #ccc;
+	background-image: url("../images/tile-gradient.png");
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px #333;
+	display: inline-block;
+}
+
+
+#sendDetailsInputs
+{
+	width:560px;
+}
+
+
+#sendDetailsInputs .detailsInput
+{
+	width:166px;
+	color:#444;
+}
+
+.detailsInputLeftMargin
+{
+	margin-left:16px;
+}
+
+
+#sendDetailsButton
+{
+	width:48px;
+	padding:24px 48px;
+	margin-left:32px;
+	background:#98e052;
+	background-image: url("../images/tile-gradient.png");
+	text-shadow: 0 1px 0 rgba(220, 220, 220, 0.8);
+	text-align: center;
+	font-weight: bold;
+	color:#444;
+	cursor: pointer;
+}
+
+
+#sendDetailsButton:hover
+{
+	color:#000;
+}

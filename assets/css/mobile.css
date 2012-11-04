@@ -1,0 +1,42 @@
+/* --- common ---*/
+
+.wrapper
+{
+	width: 272px;
+}
+
+
+/* --- header ---*/
+
+#headerLabel
+{
+	font-size: 125%
+}
+
+
+/* --- content ---*/
+
+.codecTile
+{
+	width: 126px;
+	margin-bottom:16px;
+}
+
+
+.codecTileLeftColumn
+{
+	margin-right:16px;
+}
+
+
+.supportedLabel
+{
+	padding: 16px;
+	font-size: 85%;
+}
+
+
+.supportedLabel .brackets
+{
+	font-size: 75%;
+}

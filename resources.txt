@@ -1,0 +1,8 @@
+http://stackoverflow.com/questions/7451635/how-to-detect-supported-video-formats-for-the-html5-video-tag
+http://html5doctor.com/html5-audio-the-state-of-play/
+
+http://supportdetails.com/
+http://playerversion.com/
+
+https://developer.mozilla.org/en-US/docs/Media_formats_supported_by_the_audio_and_video_elements
+http://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile

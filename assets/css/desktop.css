@@ -1,0 +1,21 @@
+/* --- common ---*/
+
+.wrapper
+{
+	width: 800px;
+}
+
+
+/* --- content ---*/
+
+.codecTile
+{
+	width:378px;
+	margin-bottom:32px;
+}
+
+
+.codecTileLeftColumn
+{
+	margin-right:32px;
+}
