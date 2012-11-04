@@ -1,3 +1,8 @@
+/* --- CONSTANTS --- */
+
+var GOOGLE_ANALYTICS_ID = "UA-35968025-1";
+
+
 /* --- VARIABLES --- */
 
 var videoNotSupported;
@@ -57,13 +62,55 @@ var recipientsEmail;
 var sendDetailsButton;
 
 
+var isTrackingEnabled = false;	// set to false while debugging
+var analytics;
+
+
 /* --- METHODS --- */
 
 function initCodecDetect()
 {
+	initGoogleAnalyticsTracker();
 	getDOMElements();
 	detectVideoSupport();
 	detectAudioSupport();
+}
+
+
+function initGoogleAnalyticsTracker()
+{
+	if(isTrackingEnabled)
+	{
+		analytics = [['_setAccount', GOOGLE_ANALYTICS_ID], ['_trackPageview']];
+		(function(d, t)
+		{
+			var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+			g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g, s)
+		}(document, 'script'));
+	}
+}
+
+
+function addAnalyticsVariable(name, value)
+{
+	// reference: https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables#sessionLevel
+	if(isTrackingEnabled)
+	{
+		analytics.push	(	[
+								"_setCustomVar",
+								name,
+								value,
+								2
+							]
+						);
+	}
+}
+
+
+function trackEvent(name)
+{
+	
 }
 
 
@@ -125,6 +172,13 @@ function detectVideoSupport()
 		isOGGVideoSupported = "" !== video.canPlayType('video/ogg; codecs="theora"');
 		isWEBMVideoSupported = "" !== video.canPlayType('video/webm; codecs="vp8, vorbis"');
 		
+		// tracking
+		addAnalyticsVariable("Video tag supported", true);
+		addAnalyticsVariable("Video codec: MPEG4 supported", isMPEG4VideoSupported);
+		addAnalyticsVariable("Video codec: H264 supported", isH264VideoSupported);
+		addAnalyticsVariable("Video codec: OGG supported", isOGGVideoSupported);
+		addAnalyticsVariable("Video codec: WEBM supported", isWEBMVideoSupported);
+		
 		// display what is supported
 		var label;
 		var cssClass;
@@ -153,6 +207,9 @@ function detectVideoSupport()
 	{
 		videoCodecTiles.css("display", "none");
 		videoNotSupported.css("display", "block");
+		
+		// tracking
+		addAnalyticsVariable("Video tag supported", false);
 	}
 }
 
@@ -172,6 +229,16 @@ function detectAudioSupport()
 		isOGGOpusAudioSupported = "" !== audio.canPlayType('audio/ogg; codecs="opus"');
 		isWEBMAudioSupported = "" !== audio.canPlayType('audio/webm; codecs="vorbis"');
 		isWaveAudioSupported = "" !== audio.canPlayType('audio/wave; codecs="wave, pcm"');
+		
+		// tracking
+		addAnalyticsVariable("Audio tag supported", true);
+		addAnalyticsVariable("Audio codec: MP3 supported", isMP3AudioSupported);
+		addAnalyticsVariable("Audio codec: H264 supported", isMP4AudioSupported);
+		addAnalyticsVariable("Audio codec: AAC supported", isAACAudioSupported);
+		addAnalyticsVariable("Audio codec: OGG (Vorbis) supported", isOGGVorbisAudioSupported);
+		addAnalyticsVariable("Audio codec: OGG (Opus) supported", isOGGOpusAudioSupported);
+		addAnalyticsVariable("Audio codec: WEBM supported", isWEBMAudioSupported);
+		addAnalyticsVariable("Audio codec: Wave supported", isWaveAudioSupported);
 		
 		// display what is supported
 		var label;
@@ -216,6 +283,9 @@ function detectAudioSupport()
 	{
 		audioCodecTiles.css("display", "none");
 		audioNotSupported.css("display", "block");
+		
+		// tracking
+		addAnalyticsVariable("Audio tag supported", true);
 	}
 }
 
@@ -266,8 +336,11 @@ function getEmailBody()
 		body += '<strong><p>HTML <a href="http://www.w3schools.com/tags/tag_audio.asp" target="_blank">audio</a> tag not supported</p></strong>';
 	}
 	
-	body += "<strong>Browser details</strong>";
+	body += "<strong>Browser technical details</strong>";
 	body += "<ul>";
+	body += "<li>App Name: " + navigator.appName + "</li>";
+	body += "<li>App Code Name: " + navigator.appCodeName + "</li>";
+	body += "<li>App Version: " + navigator.appVersion + "</li>";
 	body += "<li>User Agent: " + navigator.userAgent + "</li>";
 	body += "<li>Platform: " + navigator.platform + "</li>";
 	body += "</ul>";

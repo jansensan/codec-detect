@@ -6,7 +6,19 @@
 }
 
 
-/* --- content ---*/
+/* --- header ---*/
+
+.headerColumn
+{
+	width:376px;
+}
+
+
+#headerLabel
+{
+	font-size: 200%
+}
+
 
 .codecTile
 {
@@ -18,4 +30,38 @@
 .codecTileLeftColumn
 {
 	margin-right:32px;
+}
+
+
+/* --- send details ---*/
+
+#sendDetailsInputs
+{
+	width:576px;
+}
+
+
+.greyButton
+{
+	padding: 14px 16px;
+}
+
+#sendDetailsInputs .detailsInput
+{
+	width:163px;
+	padding:2px;
+}
+
+
+.detailsInputLeftMargin
+{
+	margin-left:16px;
+}
+
+
+#sendDetailsButton
+{
+	width:48px;
+	padding:24px 48px;
+	margin-left:32px;
 }

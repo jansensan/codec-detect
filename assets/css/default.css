@@ -120,9 +120,9 @@ a:active
 .codecTile
 {
 	float: left;
-	width:372px;
+	width:378px;
 	max-height: 100px;
-	margin-bottom:16px;
+	margin-bottom:32px;
 	border: 1px solid rgba(220, 220, 220, 0.8);
 	background: #ccc;
 	background-image: url("../images/tile-gradient.png");
@@ -143,7 +143,7 @@ a:active
 
 .codecTileLeftColumn
 {
-	margin-right:16px;
+	margin-right:32px;
 }
 
 
@@ -192,7 +192,7 @@ a:active
 
 .greyButton
 {
-	padding: 24px;
+	padding: 14px 16px;
 	border: 1px solid rgba(220, 220, 220, 0.8);
 	background: #ccc;
 	background-image: url("../images/tile-gradient.png");
@@ -206,13 +206,14 @@ a:active
 
 #sendDetailsInputs
 {
-	width:560px;
+	width:576px;
 }
 
 
 #sendDetailsInputs .detailsInput
 {
-	width:166px;
+	width:163px;
+	padding:2px;
 	color:#444;
 }
 

@@ -57,28 +57,29 @@
 
 /* --- send details ---*/
 
+.greyButton
+{
+	padding: 24px;
+	background: #ccc;
+	background-image: url("../images/tile-gradient-2.png");
+}
+
+
 #sendDetailsInputs
 {
 	width:224px;
 }
 
 
-.greyButton
-{
-	background: #ccc;
-	background-image: url("../images/tile-gradient-2.png");
-}
-
-
 #sendDetailsInputs .detailsInput
 {
-	width:208px;
+	width:216px;
 }
 
 
 .detailsInputLeftMargin
 {
-	margin:16px 0 0 0;
+	margin:20px 0 0 0;
 }
 
 
