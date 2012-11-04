@@ -15,6 +15,7 @@
 	$body = "<html>";
 	$body .= "<p>" . $yourName . " has visited <a href='http://codecdetect.com' target='_blank'>Codec Detect</a> and shared with you the information obtained.</p>";
 	$body .= $_GET["body"];
+	$body .= "<br/>";
 	$body .= "<small><a href='http://codecdetect.com' target='_blank'>Codec Detect</a> has been built by <a href='http://jansensan.net' target='_blank'>Mat Janson Blanchet</a></small>";
 	$body .= "</html>";
 	
