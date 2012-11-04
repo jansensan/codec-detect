@@ -62,7 +62,7 @@ var recipientsEmail;
 var sendDetailsButton;
 
 
-var isTrackingEnabled = false;	// set to false while debugging
+var isTrackingEnabled = true;	// set to false while debugging
 var analytics;
 
 
