@@ -310,12 +310,12 @@ function getEmailBody()
 		body += "<li>" + videoOGGLabel.text() + "</li>";
 		body += "<li>" + videoWEBMLabel.text() + "</li>";
 		body += "</ul>";
-		body += "<br/>";
 	}
 	else
 	{
 		body += '<strong><p>HTML <a href="http://www.w3schools.com/tags/tag_video.asp" target="_blank">video</a> tag not supported</p></strong>';
 	}
+	body += "<br/>";
 	
 	if(audio)
 	{
@@ -329,12 +329,12 @@ function getEmailBody()
 		body += "<li>" + audioOGGOpusLabel.text() + "</li>";
 		body += "<li>" + audioWaveLabel.text() + "</li>";
 		body += "</ul>";
-		body += "<br/>";
 	}
 	else
 	{
 		body += '<strong><p>HTML <a href="http://www.w3schools.com/tags/tag_audio.asp" target="_blank">audio</a> tag not supported</p></strong>';
 	}
+	body += "<br/>";
 	
 	body += "<strong>Browser technical details</strong>";
 	body += "<ul>";
