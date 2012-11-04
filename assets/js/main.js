@@ -111,9 +111,18 @@ function addAnalyticsVariable(name, value)
 }
 
 
-function trackEvent(name)
+function trackEvent(categories, actions, labels)
 {
-	
+	if(isTrackingEnabled)
+	{
+		analytics.push	(	[
+								"_trackEvent", 
+								categories, 
+								actions, 
+								labels
+							]
+						);
+	}
 }
 
 
@@ -422,6 +431,8 @@ function onSendClicked(_)
 
 function onFormHiddenForSuccess()
 {
+	trackEvent("Email", "Success", "Success");
+	
 	sendDetailsForm.css("display", "none");
 	sendDetailsConfirmation.css("display", "block");
 	sendDetailsConfirmation.fadeTo(575, 1);
@@ -430,6 +441,8 @@ function onFormHiddenForSuccess()
 
 function onFormHiddenForError()
 {
+	trackEvent("Email", "Error", "Error");
+	
 	sendDetailsForm.css("display", "none");
 	sendDetailsError.css("display", "block");
 	sendDetailsError.fadeTo(575, 1);
