@@ -10,7 +10,38 @@
 
 #headerLabel
 {
-	font-size: 200%
+	font-size: 160%;
+}
+
+
+.headerColumn
+{
+	width:250px;
+	display: inline-block;
+}
+
+
+#header h1
+{
+	margin:0 24px 0 0;
+}
+
+
+#header h3
+{
+	text-align: right;
+}
+
+
+.url
+{
+	display: block;
+}
+
+
+.author
+{
+	line-height:14px;
 }
 
 
@@ -33,4 +64,56 @@
 {
 	padding:32px 0;
 	font-size: 100%;
+}
+
+
+/* --- send details ---*/
+
+#sendDetailsInputs
+{
+	width:512px;
+}
+
+
+.greyButton
+{
+	padding:16px;
+	margin:0;
+}
+
+
+#sendDetailsInputs .detailsInput
+{
+	width:480px;
+	margin: 8px;
+	padding: 4px;
+}
+
+
+.detailsInputLeftMargin
+{
+	margin-left:0px;
+}
+
+
+#sendDetailsButton
+{
+	width:544px;
+	padding:12px 0;
+	margin:24px 0 0 0;
+}
+
+
+/* --- footer ---*/
+
+.column
+{
+	width:48%;
+	float: left;
+}
+
+
+.rightColumn
+{
+	margin-left: 4%;
 }

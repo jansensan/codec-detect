@@ -12,7 +12,7 @@
 		<title>Codec Detect</title>
 		
 		<meta name="description" content="Detect what video and audio codecs your browser supports.">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		
 		<!-- Facebook share metadata -->
 		<meta property="og:title" content="Codec Detect"/> 
@@ -50,12 +50,14 @@
 		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
 		
+		
 		<div id="header">
 			<div class="wrapper">
 				<h1 id="headerLabel" class="headerColumn">Codec Detect</h1>
-				<h3 class="headerColumn author">Built by<br/><a href="http://jansensan.net/" target="_blank">Mat Janson Blanchet</a></h3>
+				<h3 class="headerColumn author">Built by <span class="url"><a href="http://jansensan.net/" target="_blank">Mat Janson Blanchet</a></span></h3>
 			</div>
 		</div>
+		
 		
 		<div id="content" class="wrapper">
 			<div id="videoCodecs" class="codecGroup">
@@ -190,7 +192,7 @@
 			
 			
 			<div id="sendDetails">
-				<h2>Send</h2>
+				<h2>Send codec info</h2>
 				
 				<div id="sendDetailsInputs" class="greyButton">
 					<input 
@@ -218,7 +220,22 @@
 				<div id="sendDetailsButton" class="greyButton">Send</div>
 			</div>
 		</div>
-
+		
+		
+		<div id="footer">
+			<div class="wrapper">
+				<div class="column leftColumn">
+					<p class="footerTitle">Privacy</p>
+					<p>Don't worry, this service does not collect nominal information about you or your browser, only anonymous statistical browser capability information cumulated into <a href="www.google.com/analytics/" target="_blank">Google Analytics</a>.</p>
+				</div>
+				<div class="column rightColumn">
+					<p class="footerTitle">Sources</p>
+					<p>All the sources for this service are available on a <a href="http://github.com/jansensan/codec-detect" target="_blank">GitHub repository</a>. Learn from it, use it in your projects, or even correct me if I've made mistakes.</p>
+				</div>
+			</div>
+		</div>
+		
+		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script>
 			window.jQuery || document.write('<script src="assets/js/libs/jquery-1.8.2.min.js"><\/script>')

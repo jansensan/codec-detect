@@ -10,7 +10,20 @@
 
 #headerLabel
 {
-	font-size: 125%
+	font-size: 32px;
+}
+
+
+.headerColumn
+{
+	width:272px;
+	display: block;
+}
+
+
+#header h3
+{
+	text-align: left;
 }
 
 
@@ -39,4 +52,59 @@
 .supportedLabel .brackets
 {
 	font-size: 75%;
+}
+
+
+/* --- send details ---*/
+
+#sendDetailsInputs
+{
+	width:224px;
+}
+
+
+.greyButton
+{
+	background: #ccc;
+	background-image: url("../images/tile-gradient-2.png");
+}
+
+
+#sendDetailsInputs .detailsInput
+{
+	width:208px;
+}
+
+
+.detailsInputLeftMargin
+{
+	margin:16px 0 0 0;
+}
+
+
+#sendDetailsButton
+{
+	width:224px;
+	margin:16px 0 0 0;
+	padding:24px;
+}
+
+
+/* --- footer ---*/
+
+.column
+{
+	width:272px;
+}
+
+
+.leftColumn
+{
+	margin-right: 0;
+}
+
+
+.rightColumn
+{
+	
 }

@@ -231,38 +231,46 @@ function getEmailBody()
 {
 	var body = "";
 	
-	body += "<html>";
+	if(video)
+	{
+		body += "<strong>Supported video codecs</strong>";
+		body += "<ul>";
+		body += "<li>" + videoMPEG4Label.text() + "</li>";
+		body += "<li>" + videoH264Label.text() + "</li>";
+		body += "<li>" + videoOGGLabel.text() + "</li>";
+		body += "<li>" + videoWEBMLabel.text() + "</li>";
+		body += "</ul>";
+		body += "<br/>";
+	}
+	else
+	{
+		body += '<strong><p>HTML <a href="http://www.w3schools.com/tags/tag_video.asp" target="_blank">video</a> tag not supported</p></strong>';
+	}
 	
-	body += "<strong>Video codecs</strong>";
-	body += "<ul>";
-	body += "<li>" + videoMPEG4Label.text() + "</li>";
-	body += "<li>" + videoH264Label.text() + "</li>";
-	body += "<li>" + videoOGGLabel.text() + "</li>";
-	body += "<li>" + videoWEBMLabel.text() + "</li>";
-	body += "</ul>";
-	body += "<br/>";
-	
-	body += "<strong>Audio codecs</strong>";
-	body += "<ul>";
-	body += "<li>" + audioMP3Label.text() + "</li>";
-	body += "<li>" + audioMP4Label.text() + "</li>";
-	body += "<li>" + audioAACLabel.text() + "</li>";
-	body += "<li>" + audioWEBMLabel.text() + "</li>";
-	body += "<li>" + audioOGGVorbisLabel.text() + "</li>";
-	body += "<li>" + audioOGGOpusLabel.text() + "</li>";
-	body += "<li>" + audioWaveLabel.text() + "</li>";
-	body += "</ul>";
-	body += "<br/>";
+	if(audio)
+	{
+		body += "<strong>Supported audio codecs</strong>";
+		body += "<ul>";
+		body += "<li>" + audioMP3Label.text() + "</li>";
+		body += "<li>" + audioMP4Label.text() + "</li>";
+		body += "<li>" + audioAACLabel.text() + "</li>";
+		body += "<li>" + audioWEBMLabel.text() + "</li>";
+		body += "<li>" + audioOGGVorbisLabel.text() + "</li>";
+		body += "<li>" + audioOGGOpusLabel.text() + "</li>";
+		body += "<li>" + audioWaveLabel.text() + "</li>";
+		body += "</ul>";
+		body += "<br/>";
+	}
+	else
+	{
+		body += '<strong><p>HTML <a href="http://www.w3schools.com/tags/tag_audio.asp" target="_blank">audio</a> tag not supported</p></strong>';
+	}
 	
 	body += "<strong>Browser details</strong>";
 	body += "<ul>";
-	body += "<li>navigator.platform: " + navigator.platform + "</li>";
-	body += "<li>navigator.userAgent: " + navigator.userAgent + "</li>";
-	body += "<li>navigator.appName: " + navigator.appName + "</li>";
-	body += "<li>navigator.appVersion: " + navigator.appVersion + "</li>";
+	body += "<li>User Agent: " + navigator.userAgent + "</li>";
+	body += "<li>Platform: " + navigator.platform + "</li>";
 	body += "</ul>";
-	
-	body += "</html>";
 	
 	return body;
 }
