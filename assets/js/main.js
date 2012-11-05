@@ -2,6 +2,10 @@
 
 var GOOGLE_ANALYTICS_ID = "UA-35968025-1";
 
+var HTML_TAG_SUPPORT = "HTML tag support";
+var VIDEO_CODEC_SUPPORT = "Video codec support";
+var AUDIO_CODEC_SUPPORT = "Audio codec support";
+
 
 /* --- VARIABLES --- */
 
@@ -65,7 +69,7 @@ var sendDetailsConfirmation;
 var sendDetailsError;
 
 
-var isTrackingEnabled = false;	// set to false while debugging
+var isTrackingEnabled = true;	// set to false while debugging
 var analytics;
 
 
@@ -95,24 +99,9 @@ function initGoogleAnalyticsTracker()
 }
 
 
-function addAnalyticsVariable(name, value)
-{
-	// reference: https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables#sessionLevel
-	if(isTrackingEnabled)
-	{
-		analytics.push	(	[
-								"_setCustomVar",
-								name,
-								value,
-								2
-							]
-						);
-	}
-}
-
-
 function trackEvent(categories, actions, labels)
 {
+	// reference: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
 	if(isTrackingEnabled)
 	{
 		analytics.push	(	[
@@ -188,11 +177,11 @@ function detectVideoSupport()
 		isWEBMVideoSupported = "" !== video.canPlayType('video/webm; codecs="vp8, vorbis"');
 		
 		// tracking
-		addAnalyticsVariable("Video tag supported", true);
-		addAnalyticsVariable("Video codec: MPEG4 supported", isMPEG4VideoSupported);
-		addAnalyticsVariable("Video codec: H264 supported", isH264VideoSupported);
-		addAnalyticsVariable("Video codec: OGG supported", isOGGVideoSupported);
-		addAnalyticsVariable("Video codec: WEBM supported", isWEBMVideoSupported);
+		trackEvent(HTML_TAG_SUPPORT, "Video tag supported", true);
+		trackEvent(VIDEO_CODEC_SUPPORT, "MPEG4", isMPEG4VideoSupported);
+		trackEvent(VIDEO_CODEC_SUPPORT, "H264", isH264VideoSupported);
+		trackEvent(VIDEO_CODEC_SUPPORT, "OGG", isOGGVideoSupported);
+		trackEvent(VIDEO_CODEC_SUPPORT, "WEBM", isWEBMVideoSupported);
 		
 		// display what is supported
 		var label;
@@ -224,7 +213,7 @@ function detectVideoSupport()
 		videoNotSupported.css("display", "block");
 		
 		// tracking
-		addAnalyticsVariable("Video tag supported", false);
+		trackEvent(HTML_TAG_SUPPORT, "Video tag supported", false);
 	}
 }
 
@@ -246,14 +235,14 @@ function detectAudioSupport()
 		isWaveAudioSupported = "" !== audio.canPlayType('audio/wave; codecs="wave, pcm"');
 		
 		// tracking
-		addAnalyticsVariable("Audio tag supported", true);
-		addAnalyticsVariable("Audio codec: MP3 supported", isMP3AudioSupported);
-		addAnalyticsVariable("Audio codec: H264 supported", isMP4AudioSupported);
-		addAnalyticsVariable("Audio codec: AAC supported", isAACAudioSupported);
-		addAnalyticsVariable("Audio codec: OGG (Vorbis) supported", isOGGVorbisAudioSupported);
-		addAnalyticsVariable("Audio codec: OGG (Opus) supported", isOGGOpusAudioSupported);
-		addAnalyticsVariable("Audio codec: WEBM supported", isWEBMAudioSupported);
-		addAnalyticsVariable("Audio codec: Wave supported", isWaveAudioSupported);
+		trackEvent(HTML_TAG_SUPPORT, "Audio tag supported", true);
+		trackEvent(AUDIO_CODEC_SUPPORT, "MP3", isMP3AudioSupported);
+		trackEvent(AUDIO_CODEC_SUPPORT, "MP4", isMP4AudioSupported);
+		trackEvent(AUDIO_CODEC_SUPPORT, "AAC", isAACAudioSupported);
+		trackEvent(AUDIO_CODEC_SUPPORT, "OGG (Vorbis)", isOGGVorbisAudioSupported);
+		trackEvent(AUDIO_CODEC_SUPPORT, "OGG (Opus)", isOGGOpusAudioSupported);
+		trackEvent(AUDIO_CODEC_SUPPORT, "WEBM", isWEBMAudioSupported);
+		trackEvent(AUDIO_CODEC_SUPPORT, "Wave", isWaveAudioSupported);
 		
 		// display what is supported
 		var label;
@@ -300,7 +289,7 @@ function detectAudioSupport()
 		audioNotSupported.css("display", "block");
 		
 		// tracking
-		addAnalyticsVariable("Audio tag supported", true);
+		trackEvent(HTML_TAG_SUPPORT, "Audio tag supported", true);
 	}
 }
 
