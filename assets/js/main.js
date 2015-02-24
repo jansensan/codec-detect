@@ -289,7 +289,7 @@ function detectAudioSupport()
 		audioNotSupported.css("display", "block");
 		
 		// tracking
-		trackEvent(HTML_TAG_SUPPORT, "Audio tag supported", true);
+		trackEvent(HTML_TAG_SUPPORT, "Audio tag supported", false );
 	}
 }
 
