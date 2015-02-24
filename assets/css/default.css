@@ -146,18 +146,19 @@ a:active
 	margin-right:32px;
 }
 
-
-.supportedCodecTile
+.probably
 {
-	background:#98e052;
-	background-image: url("../images/tile-gradient.png");
+	background-color:#98e052;
 }
 
-
-.unsupportedCodecTile
+.maybe
 {
-	background:#f78989;
-	background-image: url("../images/tile-gradient.png");
+	background-color:#DDB134;
+}
+
+.not
+{
+	background-color:#f78989;
 }
 
 
