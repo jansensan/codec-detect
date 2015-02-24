@@ -34,7 +34,6 @@ var audioNotSupported;
 var audioCodecTiles;
 
 var audioMP3Tile;
-var audioMP4Tile;
 var audioAACTile;
 var audioOGGVorbisTile;
 var audioOGGOpusTile;
@@ -42,7 +41,6 @@ var audioWEBMTile;
 var audioWaveTile;
 
 var audioMP3Label;
-var audioMP4Label;
 var audioAACLabel;
 var audioOGGVorbisLabel;
 var audioOGGOpusLabel;
@@ -50,7 +48,6 @@ var audioWEBMLabel;
 var audioWaveLabel;
 
 var isMP3AudioSupported;
-var isMP4AudioSupported;
 var isAACAudioSupported;
 var isOGGVorbisAudioSupported;
 var isOGGOpusAudioSupported;
@@ -171,41 +168,36 @@ function detectVideoSupport()
 	if(video)
 	{
 		// get supported video codecs
-		isMPEG4VideoSupported = "" !== video.canPlayType('video/mp4; codecs="mp4v.20.8"');
-		isH264VideoSupported = "" !== (video.canPlayType('video/mp4; codecs="avc1.42E01E"') || video.canPlayType( 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'));
-		isOGGVideoSupported = "" !== video.canPlayType('video/ogg; codecs="theora"');
-		isWEBMVideoSupported = "" !== video.canPlayType('video/webm; codecs="vp8, vorbis"');
+		isMPEG4VideoSupported = video.canPlayType('video/mp4; codecs="mp4v.20.8"');
+		isH264VideoSupported = video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+		isOGGVideoSupported = video.canPlayType('video/ogg; codecs="theora"');
+		isWEBMVideoSupported = video.canPlayType('video/webm; codecs="vp8, vorbis"');
 		
 		// tracking
 		trackEvent(HTML_TAG_SUPPORT, "Video tag supported", true);
-		trackEvent(VIDEO_CODEC_SUPPORT, "MPEG4", isMPEG4VideoSupported);
-		trackEvent(VIDEO_CODEC_SUPPORT, "H264", isH264VideoSupported);
-		trackEvent(VIDEO_CODEC_SUPPORT, "OGG", isOGGVideoSupported);
-		trackEvent(VIDEO_CODEC_SUPPORT, "WEBM", isWEBMVideoSupported);
+		trackEvent(VIDEO_CODEC_SUPPORT, "MPEG4", isMPEG4VideoSupported !== "" );
+		trackEvent(VIDEO_CODEC_SUPPORT, "H264", isH264VideoSupported !== "" );
+		trackEvent(VIDEO_CODEC_SUPPORT, "OGG", isOGGVideoSupported !== "" );
+		trackEvent(VIDEO_CODEC_SUPPORT, "WEBM", isWEBMVideoSupported !== "" );
 		
 		// display what is supported
-		var label;
-		var cssClass;
+		var value;
+
+		value = (isMPEG4VideoSupported === "" ? "not" : isMPEG4VideoSupported);
+		videoMPEG4Label.text( "MPEG4 " + value + " supported" );
+		videoMPEG4Tile.addClass( value );
 		
-		label = (isMPEG4VideoSupported) ? "MPEG4 supported" : "MPEG4 not supported";
-		cssClass = (isMPEG4VideoSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		videoMPEG4Label.text(label);
-		videoMPEG4Tile.addClass(cssClass);
+		value = (isH264VideoSupported === "" ? "not" : isH264VideoSupported);
+		videoH264Label.text( "H.264 " + value + " supported" );
+		videoH264Tile.addClass( value );
 		
-		label = (isH264VideoSupported) ? "H264 supported" : "H264 not supported";
-		cssClass = (isH264VideoSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		videoH264Label.text(label);
-		videoH264Tile.addClass(cssClass);
+		value = (isOGGVideoSupported === "" ? "not" : isOGGVideoSupported);
+		videoOGGLabel.text( "Ogg " + value + " supported" );
+		videoOGGTile.addClass( value );
 		
-		label = (isOGGVideoSupported) ? "OGG supported" : "OGG not supported";
-		cssClass = (isOGGVideoSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		videoOGGLabel.text(label);
-		videoOGGTile.addClass(cssClass);
-		
-		label = (isWEBMVideoSupported) ? "WEBM supported" : "WEBM not supported";
-		cssClass = (isWEBMVideoSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		videoWEBMLabel.text(label);
-		videoWEBMTile.addClass(cssClass);
+		value = (isWEBMVideoSupported === "" ? "not" : isWEBMVideoSupported);
+		videoWEBMLabel.text( "WebM " + value + " supported" );
+		videoWEBMTile.addClass( value );
 	}
 	else
 	{
@@ -225,63 +217,48 @@ function detectAudioSupport()
 	
 	if(audio)
 	{
-		// get supported video codecs
-		isMP3AudioSupported = "" !== audio.canPlayType('audio/mp3; codecs="mpeg 4, mp3"');
-		isMP4AudioSupported = "" !== audio.canPlayType('audio/mp4; codecs="m4a"');
-		isAACAudioSupported = "" !== audio.canPlayType('audio/aac; codecs="mpeg 4, aac"');
-		isOGGVorbisAudioSupported = "" !== audio.canPlayType('audio/ogg; codecs="vorbis"');
-		isOGGOpusAudioSupported = "" !== audio.canPlayType('audio/ogg; codecs="opus"');
-		isWEBMAudioSupported = "" !== audio.canPlayType('audio/webm; codecs="vorbis"');
-		isWaveAudioSupported = "" !== audio.canPlayType('audio/wave; codecs="wave, pcm"');
+		isMP3AudioSupported = audio.canPlayType('audio/mpeg');
+		isAACAudioSupported = audio.canPlayType('audio/mp4; codecs="mp4a.40.2"');
+		isOGGVorbisAudioSupported = audio.canPlayType('audio/ogg; codecs="vorbis"');
+		isOGGOpusAudioSupported = audio.canPlayType('audio/ogg; codecs="opus"');
+		isWEBMAudioSupported = audio.canPlayType('audio/webm; codecs="vorbis"');
+		isWaveAudioSupported = audio.canPlayType('audio/wav; codecs="1"');
 		
 		// tracking
-		trackEvent(HTML_TAG_SUPPORT, "Audio tag supported", true);
-		trackEvent(AUDIO_CODEC_SUPPORT, "MP3", isMP3AudioSupported);
-		trackEvent(AUDIO_CODEC_SUPPORT, "MP4", isMP4AudioSupported);
-		trackEvent(AUDIO_CODEC_SUPPORT, "AAC", isAACAudioSupported);
-		trackEvent(AUDIO_CODEC_SUPPORT, "OGG (Vorbis)", isOGGVorbisAudioSupported);
-		trackEvent(AUDIO_CODEC_SUPPORT, "OGG (Opus)", isOGGOpusAudioSupported);
-		trackEvent(AUDIO_CODEC_SUPPORT, "WEBM", isWEBMAudioSupported);
-		trackEvent(AUDIO_CODEC_SUPPORT, "Wave", isWaveAudioSupported);
-		
+		trackEvent(HTML_TAG_SUPPORT, "Audio tag supported", true );
+		trackEvent(AUDIO_CODEC_SUPPORT, "MP3", isMP3AudioSupported !== "" );
+		trackEvent(AUDIO_CODEC_SUPPORT, "AAC", isAACAudioSupported !== "" );
+		trackEvent(AUDIO_CODEC_SUPPORT, "OGG (Vorbis)", isOGGVorbisAudioSupported !== "" );
+		trackEvent(AUDIO_CODEC_SUPPORT, "OGG (Opus)", isOGGOpusAudioSupported !== "" );
+		trackEvent(AUDIO_CODEC_SUPPORT, "WEBM", isWEBMAudioSupported !== "" );
+		trackEvent(AUDIO_CODEC_SUPPORT, "Wave", isWaveAudioSupported !== "" );
+
 		// display what is supported
-		var label;
-		var cssClass;
+		var value;
+
+		value = (isMP3AudioSupported === "" ? "not" : isMP3AudioSupported);
+		audioMP3Label.text( "MP3 " + value + " supported" );
+		audioMP3Tile.addClass( value );
 		
-		label = (isMP3AudioSupported) ? "MP3 supported" : "MP3 not supported";
-		cssClass = (isMP3AudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioMP3Label.text(label);
-		audioMP3Tile.addClass(cssClass);
+		value = (isAACAudioSupported === "" ? "not" : isAACAudioSupported);
+		audioAACLabel.text( "MP4 (AAC) " + value + " supported" );
+		audioAACTile.addClass( value );
 		
-		label = (isMP4AudioSupported) ? "MP4 supported" : "MP4 not supported";
-		cssClass = (isMP4AudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioMP4Label.text(label);
-		audioMP4Tile.addClass(cssClass);
+		value = (isWEBMAudioSupported === "" ? "not" : isWEBMAudioSupported);
+		audioWEBMLabel.text( "WebM " + value + " supported" );
+		audioWEBMTile.addClass( value );
 		
-		label = (isAACAudioSupported) ? "AAC supported" : "AAC not supported";
-		cssClass = (isAACAudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioAACLabel.text(label);
-		audioAACTile.addClass(cssClass);
+		value = (isOGGVorbisAudioSupported === "" ? "not" : isOGGVorbisAudioSupported);
+		audioOGGVorbisLabel.text( "Ogg (Vorbis) " + value + " supported" );
+		audioOGGVorbisTile.addClass( value );
 		
-		label = (isWEBMAudioSupported) ? "WEBM supported" : "WEBM  not supported";
-		cssClass = (isWEBMAudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioWEBMLabel.text(label);
-		audioWEBMTile.addClass(cssClass);
+		value = (isOGGOpusAudioSupported === "" ? "not" : isOGGOpusAudioSupported);
+		audioOGGOpusLabel.text( "Ogg (Opus) " + value + " supported" );
+		audioOGGOpusTile.addClass( value );
 		
-		label = (isOGGVorbisAudioSupported) ? "OGG (Vorbis) supported" : "OGG (Vorbis) not supported";
-		cssClass = (isOGGVorbisAudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioOGGVorbisLabel.text(label);
-		audioOGGVorbisTile.addClass(cssClass);
-		
-		label = (isOGGOpusAudioSupported) ? "OGG (Opus) supported" : "OGG (Opus) not supported";
-		cssClass = (isOGGOpusAudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioOGGOpusLabel.text(label);
-		audioOGGOpusTile.addClass(cssClass);
-		
-		label = (isWaveAudioSupported) ? "Wave supported" : "Wave not supported";
-		cssClass = (isWaveAudioSupported) ? "supportedCodecTile" : "unsupportedCodecTile";
-		audioWaveLabel.text(label);
-		audioWaveTile.addClass(cssClass);
+		value = (isWaveAudioSupported === "" ? "not" : isWaveAudioSupported);
+		audioWaveLabel.text( "Wave " + value + " supported" );
+		audioWaveTile.addClass( value );
 	}
 	else
 	{
@@ -326,7 +303,6 @@ function getEmailBody()
 		body += "<strong>Supported audio codecs</strong>";
 		body += "<ul>";
 		body += "<li>" + audioMP3Label.text() + "</li>";
-		body += "<li>" + audioMP4Label.text() + "</li>";
 		body += "<li>" + audioAACLabel.text() + "</li>";
 		body += "<li>" + audioWEBMLabel.text() + "</li>";
 		body += "<li>" + audioOGGVorbisLabel.text() + "</li>";
