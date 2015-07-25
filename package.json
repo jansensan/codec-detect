@@ -1,0 +1,24 @@
+{
+  "name": "codec-detect",
+  "description": "A utility to detect audio and video codecs support.",
+  "version": "1.0.0",
+  "author": "Mat Janson Blanchet <mat.jb@jansensan.net> (http://jansensan.net)",
+  "homepage": "http://codecdetect.com",
+  "main": "dist/codec-detect.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jansensan/codec-detect.git"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-uglify": "^1.2.0",
+    "jshint-stylish": "^2.0.1",
+    "require-dir": "^0.3.0"
+  }
+}
