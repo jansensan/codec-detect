@@ -33,7 +33,7 @@ var CodecDetect = CodecDetect || (function CodecDetectIIFE() {
   // public api
   var cd = {
     // constants
-    VERSION: '1.0.0',
+    VERSION: '1.0.1',
     // properties
     method: Method.EXACT,
     // video methods
