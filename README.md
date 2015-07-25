@@ -1,16 +1,18 @@
-# Codec Detect
+# CodecDetect
 
-Detects what video and audio codecs a browser supports.
-
-
-## Privacy
-
-This service does not collect nominal information about you or your browser, only anonymous statistical browser capability information cumulated into Google Analytics.
+Library to Detect what video and audio codecs a browser supports.
 
 
-## Inspiration
+## How to use this library
 
-- [Support Details](http://supportdetails.com/)
+See the [examples](https://rawgit.com/jansensan/codec-detect/master/example/example.html). More documentation to come soon.
+
+
+## codecdetect.com sources
+
+This repository now contains only the sources for the CodecDetect JS library. The sources for the website have been [moved to a new repository](https://github.com/jansensan/codec-detect-website)*.
+
+\* The website has not yet been adapted to work with the JS library. Website sources to be provided again soon.
 
 
 ## Resources 
