@@ -1,6 +1,8 @@
 # CodecDetect
 
-Library to Detect what video and audio codecs a browser supports.
+[![Bower version](https://badge.fury.io/bo/codec-detect.svg)](http://badge.fury.io/bo/codec-detect)
+
+Library to detect what video and audio codecs a browser supports.
 
 
 ## How to use this library
