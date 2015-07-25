@@ -1,0 +1,24 @@
+{
+  "name": "codec-detect",
+  "description": "A utility to detect audio and video codecs support.",
+  "version": "1.0.0",
+  "authors": ["Mat Janson Blanchet <mat.jb@jansensan.net>"],
+  "homepage": "http://codecdetect.com",
+  "main": "dist/codec-detect.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jansensan/codec-detect.git"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

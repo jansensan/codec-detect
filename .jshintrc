@@ -1,0 +1,29 @@
+{
+  "es3": false,
+  "bitwise": true,
+  "camelcase": false,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": "nofunc",
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "white": true,
+  "browser": true,
+  "jquery": true,
+  "strict": false,
+  "globals": {
+    "_": true,
+    "console": true,
+    "require": true,
+    "exports": true,
+    "module": true,
+    "process": true
+  }
+}

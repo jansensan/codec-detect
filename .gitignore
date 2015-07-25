@@ -3,3 +3,8 @@
 # mac osx files
 ._*
 .DS_STORE
+
+# project specific files
+bower_components
+node_modules
+resources

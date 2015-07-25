@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>CodecDetect Examples</title>
+  </head>
+  <body>
+    <h1>CodecDetect Examples</h1>
+
+    <p><code>CodecDetect</code> initializes itself automatically.</p>
+
+    <h2>Supported codecs as objects</h2>
+    <p>You can obtain the different supported codecs as objects:</p>
+    <pre>
+      // video codecs
+      var videoSupport = CodecDetect.getVideoSupport();
+      console.log('videoSupport: ', videoSupport);
+      // output obtained on Chrome:
+      // Object {mpeg4: false, h264: "probably", ogg: "probably", webm: "probably"}
+
+      // audio codecs
+      var audioSupport = CodecDetect.getAudioSupport();
+      console.log('audioSupport: ', audioSupport);
+      // output obtained on Chrome:
+      // Object {mp3: "probably", aac: "probably", oggVorbis: "probably", oggOpus: "probably", webm: "probably"}
+    </pre>
+
+    <h2>Getting individual supported codecs</h2>
+    <p>You can also be more granular in your use:</p>
+    <pre>
+      // video codecs
+      console.log('video: is MPEG4 supported?: ' + (CodecDetect.isMPEG4VideoSupported()));
+      console.log('video: is H264 supported?: ' + (CodecDetect.isH264VideoSupported()));
+      console.log('video: is OGG supported?: ' + (CodecDetect.isOGGVideoSupported()));
+      console.log('video: is WEBM supported?: ' + (CodecDetect.isWEBMVideoSupported()));
+      // output obtained on Chrome:
+      // video: is MPEG4 supported?: false
+      // video: is H264 supported?: probably
+      // video: is OGG supported?: probably
+      // video: is WEBM supported?: probably
+
+      // audio codecs
+      console.log('audio: is MP3 supported?: ' + (CodecDetect.isMP3AudioSupported()));
+      console.log('audio: is AAC supported?: ' + (CodecDetect.isAACAudioSupported()));
+      console.log('audio: is OGG (Vorbis) supported?: ' + (CodecDetect.isOGGVorbisAudioSupported()));
+      console.log('audio: is OGG (Opus) supported?: ' + (CodecDetect.isOGGOpusAudioSupported()));
+      console.log('audio: is WEBM supported?: ' + (CodecDetect.isWEBMAudioSupported()));
+      console.log('audio: is Wave supported?: ' + (CodecDetect.isWaveAudioSupported()));
+      // output obtained on Chrome:
+      audio: is MP3 supported?: probably
+      audio: is AAC supported?: probably
+      audio: is OGG (Vorbis) supported?: probably
+      audio: is OGG (Opus) supported?: probably
+      audio: is WEBM supported?: probably
+      audio: is Wave supported?: probably
+    </pre>
+
+    <h2>CodectDetect modes</h2>
+    <p>As you noticed, browsers use <code>'probably'</code> and <code>'maybe'</code> as values for support, which is not ideal.</p>
+    <p>By default, <code>CodecDetect</code> will return the exact value obtained when checking for the codec support.</p>
+    <pre>
+      console.log('exact/default check: is MP3 supported?: ' + (CodecDetect.isMP3AudioSupported()));
+      // output obtained on Chrome:
+      // exact/default check: is MP3 supported?: probably
+    </pre>
+    <p>However, you may wish to go a more optimistic way. This means that whenever the <code>canPlayType</code> method returns something that is not <code>false</code>, the value returned by a <code>CodecDetect</code> method will be <code>true</code>.</p>
+    <p>In order to do so, simply set the method type (or mood) for CodecDetect:</p>
+    <pre>
+      CodecDetect.method = 'optimistic';
+      console.log('optimistic check: is MP3 supported?: ' + (CodecDetect.isMP3AudioSupported()));
+      // output obtained on Chrome:
+      // optimistic check: is MP3 supported?: true
+    </pre>
+    <p>There may be moments where a more defensive or safe approach is what you prefer, in this case, simply set <code>CodecDetect</code> as such:</p>
+    <pre>
+      CodecDetect.method = 'pessimistic';
+      console.log('pessimistic check: is MP3 supported?: ' + (CodecDetect.isMP3AudioSupported()));
+      // output obtained on Chrome:
+      // pessimistic check: is MP3 supported?: false
+    </pre>
+
+    <h2>See the console</h2>
+    <p>Also, look into the console for the examples being run as explained above.</p>
+
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../dist/codec-detect.js"></script>
+    <script src="example.js"></script>
+  </body>
+</html>
