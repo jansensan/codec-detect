@@ -7,7 +7,7 @@ Library to detect what video and audio codecs a browser supports.
 
 ## How to use this library
 
-See the [examples](https://rawgit.com/jansensan/codec-detect/master/example/example.html). More documentation to come soon.
+See the [examples](https://rawgit.com/jansensan/codec-detect/master/examples/examples.html). More documentation to come soon.
 
 
 ## codecdetect.com sources
