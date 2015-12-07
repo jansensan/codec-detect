@@ -9,14 +9,13 @@
     "type": "git",
     "url": "https://github.com/jansensan/codec-detect.git"
   },
-  "dependencies": {
-    "lodash": "^3.10.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "^1.11.2",
     "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-task-listing": "^1.0.1",
     "gulp-uglify": "^1.2.0",
     "jshint-stylish": "^2.0.1",
     "require-dir": "^0.3.0"
