@@ -23,13 +23,12 @@ module.exports = function () {
       exampleDir: exampleDir
     },
     bower: {
-      json: require('../bower.json'),
+      json: require('./bower.json'),
       directory: 'bower_components/',
-      ignorePath: '../bower_components',
+      ignorePath: './bower_components',
       exclude: []
     }
   };
-
   return config;
 
 };
