@@ -2,7 +2,7 @@
   "name": "codec-detect",
   "description": "A utility to detect audio and video codecs support.",
   "authors": [
-    "Mat Janson Blanchet <mat.jb@jansensan.net> (http://jansensan.net)",
+    "Mat Janson Blanchet <mat.jb@jansensan.net> (http://jansensan.net)"
   ],
   "homepage": "http://codecdetect.com",
   "main": "./codec-detect.js",
