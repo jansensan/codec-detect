@@ -19,8 +19,10 @@
     "bower_components",
     "node_modules",
     "examples",
-    "lib",
-    "src"
+    "tasks",
+    "src",
+    "gulpfile.js",
+    "gulp-config.js"
   ],
   "keywords": [
     "audio",
