@@ -1,7 +1,6 @@
-var config = require('../gulp-config')(),
+var config = require('../gulp-config')().package,
   gulp = require('gulp'),
-  uglify = require('gulp-uglify'),
-  concat = require('gulp-concat');
+  glp = require('gulp-load-plugins')({lazy: true});
 
 // tasks
 gulp.task('package:js', packageSources);
@@ -9,10 +8,10 @@ gulp.task('package:js', packageSources);
 // methods
 function packageSources() {
   return gulp
-    .src(config.filesets.appSourceFiles)
-    .pipe(concat('codec-detect.js'))
-    .pipe(gulp.dest(config.paths.distDir))
-    .pipe(uglify())
-    .pipe(concat('codec-detect.min.js'))
-    .pipe(gulp.dest(config.paths.distDir));
+    .src(config.src)
+    .pipe(glp.concat('codec-detect.js'))
+    .pipe(gulp.dest(config.dest))
+    .pipe(glp.uglify())
+    .pipe(glp.concat('codec-detect.min.js'))
+    .pipe(gulp.dest(config.dest));
 }

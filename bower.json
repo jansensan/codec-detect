@@ -5,7 +5,7 @@
     "Mat Janson Blanchet <mat.jb@jansensan.net> (http://jansensan.net)"
   ],
   "homepage": "http://codecdetect.com",
-  "main": "./codec-detect.js",
+  "main": "codec-detect.js",
   "moduleType": "globals",
   "repository": {
     "type": "git",
@@ -33,5 +33,6 @@
     "html5",
     "media",
     "video"
-  ]
+  ],
+  "license": "MIT"
 }
