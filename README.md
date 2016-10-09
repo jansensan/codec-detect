@@ -1,6 +1,6 @@
 # CodecDetect
 
-[![Bower version](https://badge.fury.io/bo/codec-detect.svg)](http://badge.fury.io/bo/codec-detect)
+[![Project Status: Inactive - The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](http://www.repostatus.org/badges/latest/inactive.svg)](http://www.repostatus.org/#inactive) [![Bower version](https://badge.fury.io/bo/codec-detect.svg)](http://badge.fury.io/bo/codec-detect)
 
 
 ## Overview
